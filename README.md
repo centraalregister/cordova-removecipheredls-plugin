@@ -1,8 +1,6 @@
 # OutSystems Remove Secure Ciphered Local Storage Plugin
-
-Cordova plugin that recreates a SQLLite database after removing the reference to Secure Ciphered Storgae Plugin for easy usage within OutSystems Platform native mobile apps.
+Cordova plugin that recreates a SQLLite database after removing the reference to [Secure Ciphered Storgae Plugin](https://www.outsystems.com/forge/component-overview/1500/ciphered-local-storage-plugin) for easy usage within OutSystems Platform native mobile apps.
 see: 
-
 >[!WARNING]
 >This operation deletes the database including all data, database entities will be recreated and AppVersion will be initialized by OutSystems VersionManager. App is still working you have to create logic in the OnApplicationReady of your App to Initial load the user data (for example by DeviceId).
 
@@ -10,6 +8,9 @@ see:
 
 - Android
 - iOS
+
+# Installation
+Remove the reference to [Ciphered Local Storage Plugin](https://www.outsystems.com/forge/component-overview/1500/ciphered-local-storage-plugin) from your OutSystems Mobile App, add [this](https://github.com/centraalregister/cordova-removecipheredls-plugin) plugin to your application and built a new version of the app.
 
 # LICENSE
 [The MIT Licence (MIT)](https://opensource.org/license/mit/).
