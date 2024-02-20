@@ -1,4 +1,4 @@
-// Variabke to check whether the database is deleted
+// Variable to check whether the database is deleted
 var now = new Date();
 now.setTime(now.getTime() + 1 * 3600 * 1000);
 // Override existing openDatabase to automatically provide the `key` option
