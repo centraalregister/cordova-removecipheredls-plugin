@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/centraalregister/OutSystems-Cordova.git"
+    "url": "https://github.com/centraalregister/cordova-removecipheredls-plugin.git"
   },
   "author": "Sven Persijn",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/centraalregister/OutSystems-Cordova/issues"
+    "url": "https://github.com/centraalregister/cordova-removecipheredls-plugin/issues"
   },
-  "homepage": "https://github.com/centraalregister/OutSystems-Cordova#readme"
+  "homepage": "https://github.com/centraalregister/cordova-removecipheredls-plugin#readme"
 }
