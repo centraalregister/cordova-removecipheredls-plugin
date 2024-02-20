@@ -11,7 +11,7 @@
     "url": "https://github.com/centraalregister/cordova-removecipheredls-plugin.git"
   },
   "author": "Sven Persijn",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/centraalregister/cordova-removecipheredls-plugin/issues"
   },
