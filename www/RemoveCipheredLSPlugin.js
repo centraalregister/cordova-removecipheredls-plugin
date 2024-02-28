@@ -15,5 +15,5 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
 		    document.cookie = "NewDatabaseIsCreated=E; expires=" + now.toUTCString() + "; path=/";
 		    errorCallback();
 	    });
-    }, document.cookie = "NewDatabaseIsCreated=F; expires=" + now.toUTCString() + "; path=/";);
+    });
 };
