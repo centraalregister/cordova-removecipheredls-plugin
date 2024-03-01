@@ -6,13 +6,10 @@ var originalOpenDatabase = window.sqlitePlugin.openDatabase;
 
 window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallback) {
     return originalOpenDatabase.call(window.sqlitePlugin, options, successCallback, function() {
-	    document.cookie = "NewDatabaseIsCreated=C; expires=" + now.toUTCString() + "; path=/";
 	    sqlitePlugin.deleteDatabase(options, function() {
-		    document.cookie = "NewDatabaseIsCreated=D; expires=" + now.toUTCString() + "; path=/";
 		    window.sqlitePlugin.openDatabase(options, successCallback, errorCallback);
 		    document.cookie = "NewDatabaseIsCreated=1; expires=" + now.toUTCString() + "; path=/";
 	    }, function() {
-		    document.cookie = "NewDatabaseIsCreated=E; expires=" + now.toUTCString() + "; path=/";
 		    errorCallback();
 	    });
     });
