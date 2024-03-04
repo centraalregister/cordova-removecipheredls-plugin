@@ -20,3 +20,7 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
 	    });
     });
 };
+
+window.sqlitePlugin.openDatabase = function(successCallback, errorCallback) {
+    return window.sqlitePlugin.openDatabase(options, successCallback, errorCallback);
+};
