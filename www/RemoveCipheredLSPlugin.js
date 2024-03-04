@@ -3,7 +3,7 @@ var now = new Date();
 var past = new Date();
 
 now.setTime(now.getTime() + 1 * 3600 * 1000);
-past.setTime(now.getTime() - 1 * 3600 * 1000);
+past.setTime(past.getTime() - 1 * 3600 * 1000);
 // Override existing openDatabase to delete and recreate it on Error
 var originalOpenDatabase = window.sqlitePlugin.openDatabase;
 
