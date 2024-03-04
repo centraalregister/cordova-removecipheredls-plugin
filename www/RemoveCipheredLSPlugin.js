@@ -11,6 +11,23 @@ var originalOpenDatabase = window.sqlitePlugin.openDatabase;
 document.cookie = "NewDatabaseIsCreated=; expires=" + past.toUTCString() + "; path=/";
 
 window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallback) {
+    var newOptions = {};
+    for (var prop in options) {
+	if (options.hasOwnProperty(prop)) {
+	    newOptions[prop] = options[prop];
+	}
+    }
+    
+    // Ensure `location` is set (it is mandatory now)
+    if (newOptions.location === undefined) {
+	newOptions.location = "default";
+    }
+    
+    // Set the `key` to empty
+    newOptions.key = '';
+
+    // Validate the options and call the original openDatabase
+    validateDbOptions(newOptions);
     return originalOpenDatabase.call(window.sqlitePlugin, options, successCallback, function() {
 	    sqlitePlugin.deleteDatabase(options, function() {
 		    window.sqlitePlugin.openDatabase(options, successCallback, errorCallback);
@@ -19,8 +36,4 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
 		    errorCallback();
 	    });
     });
-};
-
-window.sqlitePlugin.openDatabase = function(successCallback, errorCallback) {
-    return window.sqlitePlugin.openDatabase(options, successCallback, errorCallback);
 };
