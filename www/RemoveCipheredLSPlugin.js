@@ -27,10 +27,9 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
     newOptions.key = '';
 
     // Validate the options and call the original openDatabase
-    validateDbOptions(newOptions);
-    return originalOpenDatabase.call(window.sqlitePlugin, options, successCallback, function() {
-	    sqlitePlugin.deleteDatabase(options, function() {
-		    window.sqlitePlugin.openDatabase(options, successCallback, errorCallback);
+    return originalOpenDatabase.call(window.sqlitePlugin, newOptions, successCallback, function() {
+	    sqlitePlugin.deleteDatabase(newOptions, function() {
+		    window.sqlitePlugin.openDatabase(newOptions, successCallback, errorCallback);
 		    document.cookie = "NewDatabaseIsCreated=1; expires=" + now.toUTCString() + "; path=/";
 	    }, function() {
 		    errorCallback();
