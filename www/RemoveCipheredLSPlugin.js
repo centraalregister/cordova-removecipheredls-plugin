@@ -9,7 +9,7 @@ var originalOpenDatabase = window.sqlitePlugin.openDatabase;
 
 // First remove old cookie
 document.cookie = "NewDatabaseIsCreated=; expires=" + past.toUTCString() + "; path=/";
-
+console.log('Open database');
 window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallback) {
     var newOptions = {};
     for (var prop in options) {
@@ -17,7 +17,7 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
 	    newOptions[prop] = options[prop];
 	}
     }
-    
+    console.log(newOptions.name);    
     // Ensure `location` is set (it is mandatory now)
     if (newOptions.location === undefined) {
 	newOptions.location = "default";
@@ -28,7 +28,9 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
 
     // Validate the options and call the original openDatabase
     return originalOpenDatabase.call(window.sqlitePlugin, newOptions, successCallback, function() {
+	    console.log('Delete database');
 	    sqlitePlugin.deleteDatabase(newOptions, function() {
+		    console.log('Reopen database');
 		    window.sqlitePlugin.openDatabase(newOptions, successCallback, errorCallback);
 		    document.cookie = "NewDatabaseIsCreated=1; expires=" + now.toUTCString() + "; path=/";
 	    }, function() {
