@@ -24,7 +24,7 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
     }
     
     // Set the `key` to empty
-    newOptions.key = '';
+    newOptions.key = null;
 
     // Validate the options and call the original openDatabase
     return originalOpenDatabase.call(window.sqlitePlugin, newOptions, successCallback, function() {
