@@ -20,7 +20,7 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
     console.log(newOptions.name);    
     // Ensure `location` is set (it is mandatory now)
     if (newOptions.location === undefined) {
-	newOptions.location = "default";
+	newOptions.location = 'default';
     }
     
     // Set the `key` to empty
