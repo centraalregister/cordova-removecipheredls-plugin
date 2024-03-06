@@ -17,7 +17,7 @@ window.sqlitePlugin.openDatabase = function(options, successCallback, errorCallb
 	    newOptions[prop] = options[prop];
 	}
     }
-    console.log(newOptions.name);    
+    console.log('Database name: ' + newOptions.name);    
     // Ensure `location` is set (it is mandatory now)
     if (newOptions.location === undefined) {
 	newOptions.location = 'default';
